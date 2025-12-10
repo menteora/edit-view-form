@@ -1,0 +1,25 @@
+
+{
+  "name": "edit-view-library",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "lib/index.ts",
+  "module": "lib/index.ts",
+  "types": "lib/index.ts",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "peerDependencies": {
+    "react": ">=19.0.0",
+    "react-dom": ">=19.0.0"
+  },
+  "dependencies": {
+    "lucide-react": "^0.400.0",
+    "react-router-dom": "^6.0.0"
+  }
+}
