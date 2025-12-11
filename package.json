@@ -1,6 +1,5 @@
-
 {
-  "name": "edit-view-library",
+  "name": "edit-view-form",
   "version": "1.0.0",
   "type": "module",
   "main": "lib/index.ts",
