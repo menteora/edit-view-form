@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './demo/App';
-import './index.css'; // Assuming Tailwind directives might be here, or provided via CDN in HTML
+
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {

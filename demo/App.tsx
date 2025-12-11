@@ -102,6 +102,8 @@ const UserDetails: React.FC<{ user: User, onUpdate: (u: User) => void }> = ({ us
 const AppContent: React.FC = () => {
     const [users, setUsers] = useState<User[]>(DUMMY_USERS);
     const [selectedUser, setSelectedUser] = useState<User | null>(null);
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 5;
 
     const columns: Column<User>[] = [
         { header: 'ID', accessor: 'id' },
@@ -122,6 +124,17 @@ const AppContent: React.FC = () => {
         setSelectedUser(updatedUser);
     };
 
+    // Pagination logic
+    const totalUsers = users.length;
+    const paginatedUsers = users.slice(
+        (currentPage - 1) * itemsPerPage,
+        currentPage * itemsPerPage
+    );
+
+    const handlePageChange = (newPage: number) => {
+        setCurrentPage(newPage);
+    };
+
     return (
         <div className="min-h-screen bg-bkg-light dark:bg-bkg-dark text-text-light dark:text-text-dark transition-colors duration-300">
              <header className="sticky top-0 z-10 w-full bg-card-light/95 dark:bg-card-dark/95 backdrop-blur-sm shadow-md transition-colors p-4">
@@ -135,9 +148,15 @@ const AppContent: React.FC = () => {
                 <div className="max-w-5xl mx-auto space-y-6">
                     <h2 className="text-2xl font-bold mb-4">Lista Utenti</h2>
                     <DataTable 
-                        data={users}
+                        data={paginatedUsers}
                         columns={columns}
                         onRowClick={(user) => setSelectedUser(user)}
+                        pagination={{
+                            page: currentPage,
+                            total: totalUsers,
+                            limit: itemsPerPage,
+                            onPageChange: handlePageChange
+                        }}
                     />
                 </div>
              </main>
