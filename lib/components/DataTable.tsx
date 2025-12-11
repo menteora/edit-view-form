@@ -10,6 +10,7 @@ export interface Column<T> {
 interface DataTableProps<T> {
   data: T[];
   columns: Column<T>[];
+  title?: string;
   onRowClick?: (item: T) => void;
   isLoading?: boolean;
   error?: string | null;
@@ -24,6 +25,7 @@ interface DataTableProps<T> {
 export function DataTable<T extends { id: string | number }>({ 
     data, 
     columns, 
+    title,
     onRowClick, 
     isLoading, 
     error,
@@ -34,6 +36,11 @@ export function DataTable<T extends { id: string | number }>({
 
     return (
         <div className="md:bg-card-light md:dark:bg-card-dark md:rounded-xl md:shadow-lg md:border md:border-gray-200 md:dark:border-gray-700">
+            {title && (
+                <div className="mb-4 md:mb-0 md:px-6 md:py-4 md:border-b md:border-gray-200 md:dark:border-gray-700">
+                    <h2 className="text-xl font-bold text-gray-900 dark:text-white">{title}</h2>
+                </div>
+            )}
             <div className="overflow-x-auto">
                 <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 hidden md:table-header-group">

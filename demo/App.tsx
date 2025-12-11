@@ -146,8 +146,8 @@ const AppContent: React.FC = () => {
 
              <main className="p-4 sm:p-6 lg:p-8">
                 <div className="max-w-5xl mx-auto space-y-6">
-                    <h2 className="text-2xl font-bold mb-4">Lista Utenti</h2>
                     <DataTable 
+                        title="Lista Utenti"
                         data={paginatedUsers}
                         columns={columns}
                         onRowClick={(user) => setSelectedUser(user)}
