@@ -105,7 +105,7 @@ export function DataTable<T extends { id: string | number }>({
                 </table>
             </div>
             {pagination && (
-                <div className="flex items-center justify-between p-4 border-t dark:border-gray-700 bg-card-light dark:bg-card-dark md:bg-transparent rounded-b-xl md:rounded-none mt-4 md:mt-0 shadow-sm md:shadow-none">
+                <div className="flex items-center justify-between p-4 border-t border-gray-200 dark:border-gray-700 bg-card-light dark:bg-card-dark md:bg-transparent rounded-b-xl md:rounded-none mt-4 md:mt-0 shadow-sm md:shadow-none">
                     <span className="text-sm text-gray-700 dark:text-gray-400">
                         Pagina <span className="font-semibold">{pagination.page}</span> di <span className="font-semibold">{totalPages}</span>
                     </span>
